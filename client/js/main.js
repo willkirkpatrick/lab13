@@ -13,32 +13,28 @@ var app = angular.module('myApp', ["ngRoute"]);
     app.controller("tweetController", ["$scope", "$http", "$filter", "$rootScope", function($scope, $http, $filter, $rootScope) {
         $http({
             url: "http://localhost:3000/messages",
-            type: "GET",
+            method: "GET",
         }).then(function(success) {
-            console.log(success);
+
             $scope.tweets = success.data;
-            console.log($scope.tweets);
+
             
         });
         $scope.newTweet =  function(tweet) {
-            console.log(tweet);
-            console.log($scope.tweets);
+
             $scope.time = $filter("date")(new Date(), "medium");
-            console.log($scope.time);
+
             $scope.newMessage = {text: tweet, user: $rootScope.name};
-            console.log($scope.newMessage);
             
             $scope.tweets.push($scope.newMessage);
-            console.log("good so far");
-            console.log($scope.tweets);
+
             $http({
-            url: "http://localhost:3000/messages",
-            type: "POST",
-            data: $scope.newMessage
+                url: "http://localhost:3000/messages",
+                method: "POST",
+                data: $scope.newMessage
             }).then(function(success) {
-            console.log(success);
-            
-        });
+                console.log(success);
+            });
             
         }
         
