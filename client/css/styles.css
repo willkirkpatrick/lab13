@@ -1,0 +1,8 @@
+#tweetDiv {
+    height:200px;
+    width:500px;
+    margin:20px;
+    display:block;
+    background-color:lightblue;
+    border:2px solid blue;
+}

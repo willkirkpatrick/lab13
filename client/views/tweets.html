@@ -1,0 +1,9 @@
+<h1>Hello World 2!</h1>
+<input type="text" ng-model="tweet">
+<br>
+<button ng-click="newTweet(tweet)">POST TWEET</button>
+
+<div id="tweetDiv">
+    <p ng-repeat="tweet in tweets">{{tweet.text}}; {{tweet.user}}; {{tweet.createdAt}}</p>
+</div>
+ 
